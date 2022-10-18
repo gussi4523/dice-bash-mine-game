@@ -59,9 +59,24 @@ public class DiceRoll : MonoBehaviour
     {
         if (ScorNumber > 0)
         {
-            ScorNumber--;
             ScoreRoll = true;
+            ScorNumber--;
         }
+        else if (ScorNumber == 1)
+        {
+            ScoreRoll = true;
+            ScorNumber--;
+        }
+
+        if(ScoreRoll == true)
+        {
+            Roll();
+            
+            ScoreRoll = false;
+
+            Debug.Log(ScoreRoll);
+        }
+
 
         if (ScorNumber < 0)
         {
@@ -71,11 +86,6 @@ public class DiceRoll : MonoBehaviour
         if (ScorNumber == 0)
         {
             ScoreRoll = false;
-        }
-
-        if(ScoreRoll == true)
-        {
-            Roll();
         }
     }
 
